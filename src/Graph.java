@@ -1,9 +1,13 @@
-import java.util.List;
+import java.util.Set;
 import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 public class Graph {
-    private List<Node> nodes;
-    public Graph() {
-        this.nodes = new ArrayList<>();
+    
+    private Set<Node> nodes;
+    
+    public Graph(){
+        this.nodes = new HashSet<>();
     }
     public Node addNode(int value){
         Node node = new Node(value);
@@ -11,10 +15,25 @@ public class Graph {
         return node;
     }
     public void addEdge(Node src, Node dest) {
-        
+        src.addNeighbors(dest);
+        dest.addNeighbors(src);
+    }
+    public void addEdgeUni(Node src, Node dest) {
+        src.addNeighbors(dest);
     }
     public void printGraph() {
-        
+        for(Node node: nodes) {
+            System.out.print("Vertex " + node.getValue() + ":");
+            
+            for(Node neighbor: node.getNeighbors()) {
+                System.out.print(" -> " + neighbor.getValue());
+            }
+            
+            System.out.println();
+        }
+    }
+    public void dfs(Node start){
+
     }
     public void getDFS(Node startNode){
 

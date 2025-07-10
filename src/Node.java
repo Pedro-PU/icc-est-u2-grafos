@@ -1,13 +1,13 @@
-import java.util.ArrayList;
-import java.util.List;
+import java.util.HashSet;
+import java.util.Set;
 
 public class Node {
     private int value;
-    private List<Node> neighbors;
+    private Set<Node> neighbors;
 
     public Node(int value) {
         this.value = value;
-        this.neighbors = new ArrayList<>();
+        this.neighbors = new HashSet<>();
     }
     public int getValue() {
         return value;
@@ -15,7 +15,7 @@ public class Node {
     public void setValue(int value) {
         this.value = value;
     }
-    public List<Node> getNeighbors() {
+    public Set<Node> getNeighbors() {
         return neighbors;
     }
     public void addNeighbors(Node neighbor) {
